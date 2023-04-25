@@ -6,7 +6,9 @@ pipeline {
         stage('Chapter-1') {
             agent any
             steps {
-                printHeader 'Chapter 1'
+                withGroovy(tool:'4.0.11') {
+                    printHeader 'Chapter 1'
+                }
                 echo 'Hello!'
             }
         }
@@ -19,20 +21,25 @@ pipeline {
         stage('Chapter-2') {
             agent any
             steps {
-                printHeader 'Chapter 2'
+                withGroovy(tool:'4.0.11') {
+                    printHeader 'Chapter 2'
+                 }
                 echo 'Work is in progress....'
             }
         }
         stage("Checkpoint.CH2") {
           agent none
           steps {
-            checkpoint 'Completed checkpoint'
+              checkpoint 'Completed checkpoint'
+            }
           }
         }
         stage('Chapter-3') {
             agent any
             steps {
-                printHeader 'Chapter 3'
+                withGroovy(tool:'4.0.11') {
+                    printHeader 'Chapter 3'
+                }
                 echo 'Work is done.'
             }
         }
