@@ -31,7 +31,6 @@ pipeline {
           agent none
           steps {
               checkpoint 'Completed checkpoint'
-            }
           }
         }
         stage('Chapter-3') {
