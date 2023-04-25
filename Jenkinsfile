@@ -3,26 +3,37 @@
 pipeline {
     agent none
     stages {
-        stage('Demo') {
+        stage('Chapter-1') {
             agent any
             steps {
-                printHeader 'Chapter I'
-                
-                echo 'Hello from the master branch.'
+                printHeader 'Chapter 1'
+                echo 'Hello!'
             }
         }
-        stage("Checkpoint") {
+        stage("Checkpoint.CH1") {
           agent none
           steps {
             checkpoint 'Completed checkpoint'
           }
         }
-        stage('Progress') {
+        stage('Chapter-2') {
             agent any
             steps {
-                printHeader 'Chapter II'
-                
-                echo 'Work in progress....'
+                printHeader 'Chapter 2'
+                echo 'Work is in progress....'
+            }
+        }
+        stage("Checkpoint.CH2") {
+          agent none
+          steps {
+            checkpoint 'Completed checkpoint'
+          }
+        }
+        stage('Chapter-3') {
+            agent any
+            steps {
+                printHeader 'Chapter 3'
+                echo 'Work is done.'
             }
         }
     }
